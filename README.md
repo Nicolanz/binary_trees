@@ -1,1 +1,1 @@
-# binary_trees
+This repository contains the tasks of the **binary_trees** project at Holberton School
