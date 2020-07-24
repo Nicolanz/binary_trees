@@ -6,22 +6,28 @@
  * Return: counter
  *
  */
-size_t countThis(const binary_tree_t *tree, size_t counter)
+size_t countThis(const binary_tree_t *tree)
 {
-	if (tree != NULL)
+	size_t right = 1;
+	size_t left = 1;
+
+	if (tree == NULL)
 	{
-		if (tree->left)
-		{
-			counter++;
-		}
-		countThis(tree->left, counter);
-		if (tree->right)
-		{
-			counter++;
-		}
-		countThis(tree->right, counter);
+		return (0);
 	}
-	return (counter);
+	else
+	{
+		right += countThis(tree->left);
+		left += countThis(tree->right);
+	}
+	if (right >= left)
+	{
+		return (right);
+	}
+	else
+	{
+		return (left);
+	}
 }
 /**
  * binary_tree_height - Counts the height of a tree
@@ -37,6 +43,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	{
 		return (0);
 	}
-	counter = countThis(tree, counter);
+	counter = countThis(tree);
+	counter--;
 	return (counter);
 }
