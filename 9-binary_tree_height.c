@@ -2,7 +2,6 @@
 /**
  * countThis - counter
  * @tree: Node to the root
- * @counter: Varibale to count
  * Return: counter
  *
  */
